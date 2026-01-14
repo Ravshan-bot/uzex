@@ -10,10 +10,10 @@ from apscheduler.schedulers.background import BackgroundScheduler
 BOT_TOKEN = '8151910728:AAHNCqm4h2_ELW2TbsUGzPWrl218j8HKWQs'  # 👈 Bot tokenni shu yerga yozing 
 CHANNEL_ID = '@brok_on'  # 👈 Kanal username (masalan: @uzex_yangiliklar) 
 
-CONTRACT_FILE_KARBAMID = r'https://github.com/Ravshan-bot/uzex/blob/main/karbamid.txt'
-CONTRACT_FILE_SULFAT = r'https://github.com/Ravshan-bot/uzex/blob/main/sulfat.txt'
-CONTRACT_FILE_AMMAFOS = r'https://github.com/Ravshan-bot/uzex/blob/main/ammafos.txt'
-CONTRACT_FILE_SUPREFOS = r'https://github.com/Ravshan-bot/uzex/blob/main/suprefos.txt'
+CONTRACT_FILE_KARBAMID = r'/root/uzex/uzex/uzex/karbamid.txt'
+CONTRACT_FILE_SULFAT = r'/root/uzex/uzex/uzex/sulfat.txt'
+CONTRACT_FILE_AMMAFOS = r'/root/uzex/uzex/uzex/ammafos.txt'
+CONTRACT_FILE_SUPREFOS = r'/root/uzex/uzex/uzex/suprefos.txt'
 
 URLS = {
     'Карбамид': 'https://www.uzex.uz/Trade/OffersSumNew?Page=1&Offset=0&Length=1000&Search=Карбамид',
@@ -110,3 +110,4 @@ if __name__ == '__main__':
     app.run_polling()
 
 # Eng yahshi va mengga yoqqan maqbul variant
+
