@@ -95,7 +95,7 @@ async def daily_check():
 
 def schedule_daily_job():
     scheduler = BackgroundScheduler(timezone='Asia/Tashkent')
-    scheduler.add_job(lambda: asyncio.run(daily_check()), trigger='cron', hour=9, minute=50)
+    scheduler.add_job(lambda: asyncio.run(daily_check()), trigger='cron', hour=10, minute=0)
     scheduler.add_job(lambda: asyncio.run(daily_check()), trigger='cron', hour=14, minute=50)
     scheduler.start()
 
@@ -110,6 +110,7 @@ if __name__ == '__main__':
     app.run_polling()
 
 # Eng yahshi va mengga yoqqan maqbul variant
+
 
 
 
