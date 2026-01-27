@@ -31,13 +31,20 @@ def clean_contract_number(text):
 
 def load_contract_data(file_path):
     contracts = {}
-    with open(file_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            match = re.search(r'\*{6}(\d{6,})\*{6}\s*---(.*?)---', line)
-            if match:
-                contract_number = match.group(1).strip()
-                full_info = match.group(2).strip()
-                contracts[contract_number] = full_info
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                # Yangilangan universal regex
+                # Bu regex satr oxirida --- bo'lsa ham, bo'lmasa ham o'qiydi
+                match = re.search(r'\*{6}(\d+)\*{6}\s*---(.*?)(?:---|$)', line)
+                if match:
+                    contract_number = match.group(1).strip()
+                    # Ma'lumotni tozalash
+                    full_info = match.group(2).strip()
+                    contracts[contract_number] = full_info
+        print(f"DEBUG: {file_path} dan {len(contracts)} ta kontrakt yuklandi.")
+    except Exception as e:
+        logging.error(f"Xatolik: {e}")
     return contracts
 
 def fetch_uzex_data(product_name):
@@ -110,6 +117,7 @@ if __name__ == '__main__':
     app.run_polling()
 
 # Eng yahshi va mengga yoqqan maqbul variant
+
 
 
 
