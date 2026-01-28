@@ -140,7 +140,7 @@ async def daily_check():
 def schedule_daily_job():
     scheduler = BackgroundScheduler(timezone='Asia/Tashkent')
     # Tekshiruv vaqtlari
-    scheduler.add_job(lambda: asyncio.run(daily_check()), trigger='cron', hour=10, minute=0)
+    scheduler.add_job(lambda: asyncio.run(daily_check()), trigger='cron', hour=9, minute=50)
     scheduler.add_job(lambda: asyncio.run(daily_check()), trigger='cron', hour=14, minute=50)
     scheduler.start()
 
@@ -156,6 +156,7 @@ if __name__ == '__main__':
 
 
 # Eng yahshi va mengga yoqqan maqbul variant
+
 
 
 
