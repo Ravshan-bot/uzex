@@ -14,7 +14,7 @@ CHANNEL_ID = '@brok_on'  # 👈 Kanal username (masalan: @uzex_yangiliklar)
 CONTRACT_FILE_SULFAT = r'/root/uzex/sulfat.txt'
 CONTRACT_FILE_AMMAFOS = r'/root/uzex/uzex/ammafos.txt'
 CONTRACT_FILE_SUPREFOS = r'/root/uzex/uzex/uzex/suprefos.txt'
-CONTRACT_FILE_KARBAMID = r'/root/karbamid.txt'
+CONTRACT_FILE_KARBAMID = r'/root/uzex/karbamid.txt'
 
 URLS = {
     
@@ -46,7 +46,7 @@ def fetch_uzex_data(product_name):
     url = URLS[product_name]
     for attempt in range(3):
         try:
-            response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}, timeout=120)
+            response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}, timeout=60)
             response.raise_for_status()
             soup = BeautifulSoup(response.text, 'html.parser')
             rows = soup.select('table tbody tr')
@@ -91,14 +91,14 @@ async def fetch_and_send(file_path, product_name):
             logging.error(f"[Xatolik] Telegramga yuborishda: {e}")
 
 async def daily_check():
-    await fetch_and_send(CONTRACT_FILE_KARBAMID, "Карбамид")
     await fetch_and_send(CONTRACT_FILE_SULFAT, "Сульфат")
     await fetch_and_send(CONTRACT_FILE_AMMAFOS, "Аммофос")
     await fetch_and_send(CONTRACT_FILE_SUPREFOS, "Супрефос")
+    await fetch_and_send(CONTRACT_FILE_KARBAMID, "Карбамид")
 
 def schedule_daily_job():
     scheduler = BackgroundScheduler(timezone='Asia/Tashkent')
-    scheduler.add_job(lambda: asyncio.run(daily_check()), trigger='cron', hour=10, minute=00)
+    scheduler.add_job(lambda: asyncio.run(daily_check()), trigger='cron', hour=10, minute=20)
     scheduler.add_job(lambda: asyncio.run(daily_check()), trigger='cron', hour=14, minute=51)
     scheduler.start()
 
@@ -112,6 +112,7 @@ if __name__ == '__main__':
     print("🤖 Bot ishga tushdi.")
     app.run_polling()
 # Eng yahshi va mengga yoqqan maqbul variant
+
 
 
 
