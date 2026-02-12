@@ -96,7 +96,7 @@ async def daily_check():
     await fetch_and_send(CONTRACT_FILE_SULFAT, "Сульфат")
     await fetch_and_send(CONTRACT_FILE_KARBAMID, "Карбамид")
     await fetch_and_send(CONTRACT_FILE_AMMAFOS, "Аммофос")
-    await fetch_and_send(CONTRACT_FILE_SUPREFOS, "Супрефос")
+    #await fetch_and_send(CONTRACT_FILE_SUPREFOS, "Супрефос")
     
 
 def schedule_daily_job():
@@ -115,6 +115,7 @@ if __name__ == '__main__':
     print("🤖 Bot ishga tushdi.")
     app.run_polling()
 # Eng yahshi va mengga yoqqan maqbul variant
+
 
 
 
