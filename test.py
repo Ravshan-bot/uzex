@@ -7,14 +7,14 @@ from telegram import Bot, Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from apscheduler.schedulers.background import BackgroundScheduler
 
-BOT_TOKEN = '8151910728:AAHNCqm4h2_ELW2TbsUGzPWrl218j8HKWQs'  # 👈 Bot tokenni shu yerga yozing 
-CHANNEL_ID = '@brok_on'  # 👈 Kanal username (masalan: @uzex_yangiliklar) 
+BOT_TOKEN = '#########'  # 👈 Bot tokenni shu yerga yozing 
+CHANNEL_ID = '########'  # 👈 Kanal username (masalan: @uzex_yangiliklar) 
 
 
 CONTRACT_FILE_SULFAT = r'/root/uzex/sulfat.txt'
 CONTRACT_FILE_KARBAMID = r'/root/uzex/karbamid.txt'
-CONTRACT_FILE_AMMAFOS = r'/root/uzex/uzex/ammafos.txt'
-CONTRACT_FILE_SUPREFOS = r'/root/uzex/uzex/uzex/suprefos.txt'
+CONTRACT_FILE_AMMAFOS = r'/root/uzex/ammafos.txt'
+CONTRACT_FILE_SUPREFOS = r'/root/uzex/suprefos.txt'
 
 
 URLS = {
@@ -115,6 +115,7 @@ if __name__ == '__main__':
     print("🤖 Bot ishga tushdi.")
     app.run_polling()
 # Eng yahshi va mengga yoqqan maqbul variant
+
 
 
 
